@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Notes-style To-Do</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <div class="app" id="app">
+      <header class="topbar">
+        <div class="title">
+          <h1>Notes</h1>
+          <p class="subtitle">Quick Todo list</p>
+        </div>
+
+        <div class="controls-top">
+          <button id="theme-toggle" aria-label="Toggle dark mode" class="icon-btn" title="Toggle theme">🌓</button>
+        </div>
+      </header>
+
+      <!-- progress & stats -->
+      <section class="progress-wrap" aria-hidden="false">
+        <div class="progress-line-bg" aria-hidden="true">
+          <div id="progress-bar" class="progress-bar" style="width:0%"></div>
+        </div>
+        <div class="progress-meta">
+          <span id="progress-text">0% done</span>
+          <div class="progress-actions">
+            <button id="mark-all" class="small-btn">Mark all</button>
+            <button id="clear-completed" class="small-btn danger">Clear</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- add task -->
+      <form id="todo-form" class="todo-form" autocomplete="off" aria-label="Add task form">
+        <input id="todo-input" name="task" type="text" placeholder="New task — press Enter" maxlength="120" />
+        <select id="todo-category" aria-label="Category">
+          <option value="Personal">Personal</option>
+          <option value="Work">Work</option>
+          <option value="Home">Home</option>
+          <option value="Shopping">Shopping</option>
+          <option value="School">School</option>
+          <option value="Other">Other</option>
+        </select>
+        <button type="submit" class="add-btn">Add</button>
+      </form>
+
+      <!-- filters -->
+      <section class="filters">
+        <div class="filters-left">
+          <span id="count" class="small muted">0 remaining</span>
+        </div>
+
+        <div class="filters-center">
+          <button data-filter="all" class="filter-btn active">All</button>
+          <button data-filter="active" class="filter-btn">Active</button>
+          <button data-filter="completed" class="filter-btn">Completed</button>
+        </div>
+
+        <div class="filters-right">
+          <select id="category-filter" aria-label="Filter by category">
+            <option value="all">All categories</option>
+            <option>Personal</option>
+            <option>Work</option>
+            <option>Home</option>
+            <option>Shopping</option>
+            <option>School</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- list -->
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+      <footer class="app-footer">
+        <small class="muted">Notes-style To-Do — local only</small>
+      </footer>
+    </div>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
